@@ -93,6 +93,12 @@ button:hover {
   border: 2px solid black;
 }
 
+span[contenteditable] {
+  outline: 1px solid red;
+}
+h1[contenteditable] {
+  outline: 1px solid red;
+}
 @media print {
   input + label {
     display: none;
@@ -103,5 +109,11 @@ button:hover {
 
   button {
     display: none;
+  }
+  span[contenteditable] {
+    outline: none;
+  }
+  h1[contenteditable] {
+    outline: 1px solid red;
   }
 }
