@@ -58,13 +58,21 @@ h1 {
   grid-template-columns: 1fr 1fr;
   /* column-gap: 50px; */
   column-gap: 30px;
+  row-gap: 6px;
   width: 70%;
   margin: auto;
   padding-block: 50px;
 }
-/* #optionals > div{
-  display: flex;
-} */
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: black;
+}
+#optionals > div {
+  display: inline-flex;
+  gap: 10px;
+  place-items: center;
+}
 label {
   font-size: 16px;
 }
