@@ -6,6 +6,13 @@
   font-family: "Roboto Mono", monospace;
   font-size: 20px;
 }
+body{
+  width: 100%;
+  min-width: 26cm;
+
+        padding: 2cm;
+        margin: 1cm auto;
+}
 #header {
   display: grid;
   grid-template-columns: 1fr 3fr;
@@ -30,7 +37,7 @@ h1 {
 }
 .grid {
   display: flex;
-  gap: 30px;
+  gap: 10px;
   justify-content: center;
 
   padding-bottom: 30px;
@@ -38,13 +45,19 @@ h1 {
 .semibold {
   font-weight: 700;
 }
+#optionals{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+#price{
+  padding-block: 30px;
+}
 
 @media print {
-    input[type="checkbox"] {
-        display: none;
-    }
-
-    input[type="checkbox"][checked="checked"] {
-        display: inline-block;
-    }
+  input + label ~ div {
+    display: none;
+  }
+  input[type="checkbox"]:checked + label {
+    display: inline-block;
+  }
 }
