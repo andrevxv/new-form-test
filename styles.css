@@ -1,21 +1,22 @@
 * {
   margin: 0;
   padding: 0;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
   font-family: "Roboto Mono", monospace;
-  font-size: 20px;
+  font-size: 22px;
 }
-body{ 
+body {
   width: 100%;
   min-width: 26cm;
-
-        padding: 2cm;
-        margin: 1cm auto;
+  margin: 1cm auto;
 }
 #header {
   display: grid;
   grid-template-columns: 1fr 3fr;
+
+  padding-bottom: 50px;
+
 }
 #logo {
   width: 270px;
@@ -28,36 +29,79 @@ img {
   display: flex;
   place-self: center;
 }
+#info-1{
+  border-block: 1px solid gray;
+}
 #vehicle {
-  padding-block: 30px;
+  padding-block: 50px;
 }
 h1 {
-  font-size: 52px;
+  font-size: 60px;
   text-align: center;
 }
 .grid {
   display: flex;
-  gap: 10px;
-  justify-content: center;
 
-  padding-bottom: 30px;
+  justify-content:space-between;
+
+  padding-bottom: 50px;
 }
 .semibold {
   font-weight: 700;
 }
-#optionals{
+#optionals {
   display: grid;
   grid-template-columns: 1fr 1fr;
+   /* column-gap: 50px; */
+   column-gap: 30px;
+  width: 70%;
+  margin: auto;
+  padding-block: 50px;
+  border-bottom: 1px solid gray;
+  
 }
-#price{
-  padding-block: 30px;
+/* #optionals > div{
+  display: flex;
+} */
+label {font-size: 16px;}
+#price {
+  padding-block: 50px;
+}
+
+#buttons {
+  display: flex;
+  gap: 2.8rem;
+  justify-content: space-evenly;
+
+  margin: 4rem;
+}
+button {
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: transparent;
+
+  font-size: 1.4rem;
+
+  border: 2px solid #c2c2c2;
+
+  transition: 0.5s;
+}
+
+button:hover {
+  /* background-color: #c2c2c2; */
+  cursor: pointer;
+  border: 2px solid black;
 }
 
 @media print {
-  input + label ~ div {
+  input + label {
     display: none;
   }
   input[type="checkbox"]:checked + label {
     display: inline-block;
+  }
+
+  button{
+    display: none;
   }
 }

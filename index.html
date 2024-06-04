@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <meta charset="UTF-8" /> 
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./styles.css" />
@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
       rel="stylesheet"
     />
+    <script type="module" src="./script.js"></script>
   </head>
   <body>
     <section id="header">
@@ -28,20 +29,22 @@
       <div class="grid">
         <div class="age info">
           <div>
-            <p class="info-2">
+            <p id="age" class="info-2">
               Ano/mod: <span class="semibold">2014/2014</span>
             </p>
           </div>
         </div>
         <div class="km info">
-          <p class="info-2">KM: <span class="semibold">135.000</span></p>
+          <p id="km" class="info-2">
+            KM: <span class="semibold">135.000</span>
+          </p>
         </div>
-        <div class="fuel info">
+        <div id="fuel" class="fuel info">
           <p class="info-2">
             Combustível: <span class="semibold">Gasolina</span>
           </p>
         </div>
-        <div class="transmission info">
+        <div id="transmission" class="transmission info">
           <p class="info-2">Câmbio: <span class="semibold">Automático</span></p>
         </div>
       </div>
@@ -69,7 +72,7 @@
       </div>
       <div>
         <input type="checkbox" name="banco-reg" id="banco-reg" />
-        <label for="banco-reg">Banco do motorista c/ regulagem de altura</label>
+        <label for="banco-reg">Banco c/ regulagem de altura</label>
       </div>
       <div>
         <input type="checkbox" name="couro" id="couro" />
@@ -185,5 +188,56 @@
       </div>
     </section>
     <section id="price"><h1>R$ 51.900,00</h1></section>
+    <div id="buttons">
+      <button id="edit">editar</button>
+      <button onclick="getPDF()" id="printPDF">gerar pdf</button>
+      <button onclick="window.print()" id="printPDF">imprimir</button>
+    </div>
+    <script>
+      function getPDF() {
+        var HTML_Width = $(".canvas_div_pdf").width()
+        var HTML_Height = $(".canvas_div_pdf").height()
+        var top_left_margin = 15
+        var PDF_Width = HTML_Width + top_left_margin * 2
+        var PDF_Height = PDF_Width * 1.5 + top_left_margin * 2
+        var canvas_image_width = HTML_Width
+        var canvas_image_height = HTML_Height
+
+        var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1
+
+        html2canvas($(".canvas_div_pdf")[0], { allowTaint: true }).then(
+          function (canvas) {
+            canvas.getContext("2d")
+
+            console.log(canvas.height + "  " + canvas.width)
+
+            var imgData = canvas.toDataURL("image/jpeg", 1.0)
+            var pdf = new jsPDF("p", "pt", [PDF_Width, PDF_Height])
+            pdf.addImage(
+              imgData,
+              "JPG",
+              top_left_margin,
+              top_left_margin,
+              canvas_image_width,
+              canvas_image_height
+            )
+
+            for (var i = 1; i <= totalPDFPages; i++) {
+              pdf.addPage(PDF_Width, PDF_Height)
+              pdf.addImage(
+                imgData,
+                "JPG",
+                top_left_margin,
+                -(PDF_Height * i) + top_left_margin * 4,
+                canvas_image_width,
+                canvas_image_height
+              )
+            }
+
+            pdf.save("HTML-Document.pdf")
+          }
+        )
+      }
+    </script>
   </body>
 </html>
