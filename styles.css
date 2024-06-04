@@ -17,6 +17,11 @@ body {
 
   padding-bottom: 50px;
 }
+p {
+  font-style: normal;
+  text-decoration: none;
+  color: #000;
+}
 #logo {
   width: 270px;
 }
@@ -114,6 +119,6 @@ h1[contenteditable] {
     outline: none;
   }
   h1[contenteditable] {
-    outline: 1px solid red;
+    outline: none;
   }
 }
