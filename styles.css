@@ -16,7 +16,6 @@ body {
   grid-template-columns: 1fr 3fr;
 
   padding-bottom: 50px;
-
 }
 #logo {
   width: 270px;
@@ -29,7 +28,7 @@ img {
   display: flex;
   place-self: center;
 }
-#info-1{
+#info-1 {
   border-block: 1px solid gray;
 }
 #vehicle {
@@ -42,7 +41,7 @@ h1 {
 .grid {
   display: flex;
 
-  justify-content:space-between;
+  justify-content: space-between;
 
   padding-bottom: 50px;
 }
@@ -52,20 +51,21 @@ h1 {
 #optionals {
   display: grid;
   grid-template-columns: 1fr 1fr;
-   /* column-gap: 50px; */
-   column-gap: 30px;
+  /* column-gap: 50px; */
+  column-gap: 30px;
   width: 70%;
   margin: auto;
   padding-block: 50px;
-  border-bottom: 1px solid gray;
-  
 }
 /* #optionals > div{
   display: flex;
 } */
-label {font-size: 16px;}
+label {
+  font-size: 16px;
+}
 #price {
   padding-block: 50px;
+  border-top: 1px solid gray;
 }
 
 #buttons {
@@ -101,7 +101,7 @@ button:hover {
     display: inline-block;
   }
 
-  button{
+  button {
     display: none;
   }
 }
