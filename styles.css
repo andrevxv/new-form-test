@@ -113,11 +113,15 @@ h1[contenteditable] {
   outline: 1px solid red;
 }
 @media print {
+  input,
   input + label {
     display: none;
+    /* visibility: hidden; */
   }
+  input[type="checkbox"]:checked,
   input[type="checkbox"]:checked + label {
     display: inline-block;
+    /* visibility: visible; */
   }
 
   button {
