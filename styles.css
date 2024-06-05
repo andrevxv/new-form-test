@@ -33,6 +33,9 @@ img {
   display: flex;
   place-self: center;
 }
+#address > p {
+  color: #c2c2c2;
+}
 #info-1 {
   border-block: 1px solid gray;
 }
